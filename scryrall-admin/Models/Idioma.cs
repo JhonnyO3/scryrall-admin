@@ -1,11 +1,10 @@
 ﻿using System;
 namespace scryrall_admin.Models
 {
-	public enum Idioma
+	public class Idioma
 	{
-		Portugues,
-		Ingles,
-		Espanhol
+		public string Id { get; set; }
+		public string Name { get; set; }
 	}
 }
 

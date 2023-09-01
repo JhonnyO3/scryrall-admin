@@ -17,8 +17,6 @@ namespace scryrall_admin.Models
 
 
 
-
-
         public Carta()
 		{
 		}

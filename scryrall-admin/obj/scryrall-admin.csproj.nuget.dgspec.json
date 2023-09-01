@@ -1,26 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/natashalopes/Projects/scryrall-admin/scryrall-admin/scryrall-admin.csproj": {}
+    "C:\\Users\\logonrmlocal\\Documents\\scryrall-admin\\scryrall-admin\\scryrall-admin.csproj": {}
   },
   "projects": {
-    "/Users/natashalopes/Projects/scryrall-admin/scryrall-admin/scryrall-admin.csproj": {
+    "C:\\Users\\logonrmlocal\\Documents\\scryrall-admin\\scryrall-admin\\scryrall-admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/natashalopes/Projects/scryrall-admin/scryrall-admin/scryrall-admin.csproj",
+        "projectUniqueName": "C:\\Users\\logonrmlocal\\Documents\\scryrall-admin\\scryrall-admin\\scryrall-admin.csproj",
         "projectName": "scryrall-admin",
-        "projectPath": "/Users/natashalopes/Projects/scryrall-admin/scryrall-admin/scryrall-admin.csproj",
-        "packagesPath": "/Users/natashalopes/.nuget/packages/",
-        "outputPath": "/Users/natashalopes/Projects/scryrall-admin/scryrall-admin/obj/",
+        "projectPath": "C:\\Users\\logonrmlocal\\Documents\\scryrall-admin\\scryrall-admin\\scryrall-admin.csproj",
+        "packagesPath": "C:\\Users\\logonrmlocal\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\logonrmlocal\\Documents\\scryrall-admin\\scryrall-admin\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/natashalopes/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\logonrmlocal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,11 +49,19 @@
               "target": "Package",
               "version": "[7.0.10, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.10, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             },
             "NuGet.Frameworks": {
               "target": "Package",
@@ -77,7 +91,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
         }
       }
     }
