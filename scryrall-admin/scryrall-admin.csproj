@@ -10,6 +10,16 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <Compile Remove="NovaPasta\**" />
+    <Content Remove="NovaPasta\**" />
+    <EmbeddedResource Remove="NovaPasta\**" />
+    <None Remove="NovaPasta\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Persistence\Inicializer.cs" />
+    <Compile Remove="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Oracle.EntityFrameworkCore" />
@@ -29,6 +39,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Persistence\" />
   </ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -56,13 +57,21 @@ namespace scryrall_admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Tipo,Descricao,FotoUrl")] Carta carta)
+        public async Task<IActionResult> Create([Bind("Tipo,Descricao,FotoUrl")] Carta carta)
         {
-            if (ModelState.IsValid)
+            try
             {
+  
+                 
                 _context.Add(carta);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            
+            }
+            catch (DataException /* dex */)
+            {
+                //Log the error (uncomment dex variable name and add a line here to write a log.
+                ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists see your system administrator.");
             }
             return View(carta);
         }
@@ -95,8 +104,7 @@ namespace scryrall_admin.Controllers
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
-            {
+    
                 try
                 {
                     _context.Update(carta);
@@ -114,8 +122,7 @@ namespace scryrall_admin.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            return View(carta);
+
         }
 
         // GET: Cartas/Delete/5

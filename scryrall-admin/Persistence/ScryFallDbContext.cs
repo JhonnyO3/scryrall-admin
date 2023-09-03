@@ -5,6 +5,9 @@ namespace scryrall_admin.Persistence
 {
 	public class ScryFallDbContext : DbContext
 	{
+        public ScryFallDbContext()
+        {
+        }
 
         public ScryFallDbContext(DbContextOptions<ScryFallDbContext> options)
         : base(options)
