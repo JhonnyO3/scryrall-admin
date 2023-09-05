@@ -97,49 +97,29 @@ namespace scryrall_admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Descricao,FotoUrl,Link, Ilustrador, Colecao")] Carta carta)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Descricao,FotoUrl")] Carta carta)
         {
             if (id != carta.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+
+            try
             {
-                try
-                {
-                    // Carregue o Link existente para a Carta
-                    var cartaExistente = await _context.Cartas
-                        .Include(c => c.Link) // Certifique-se de incluir o Link na consulta
-                        .Include(c => c.Colecao)
-                        .Include(c=> c.Ilustrador)
-                        .FirstOrDefaultAsync(c => c.Id == id);
-
-                 
-                        _context.Entry<Carta>(cartaExistente).CurrentValues.SetValues(_context.Cartas);
+                _context.Update(carta);
+                await _context.SaveChangesAsync();
 
 
-                        // Atualize os campos do Link
-                        _context.Entry(cartaExistente.Link).CurrentValues.SetValues(carta.Link);
+            } catch (DataException )
+            {
 
-                        await _context.SaveChangesAsync();
-                    
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CartaExists(carta.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
             }
+            return RedirectToAction(nameof(Index));
 
-            return View(carta);
+
+
+
         }
 
         // GET: Cartas/Delete/5
