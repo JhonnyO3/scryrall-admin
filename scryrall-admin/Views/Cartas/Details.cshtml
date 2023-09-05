@@ -25,8 +25,60 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.FotoUrl)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FotoUrl)
+        </dd>
+        <dt >
+            @Html.DisplayFor(model => model.Colecao)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.Ilustrador)
+        </dt>
+        <dt >
+            @Html.DisplayFor(model => model.Link)
+        </dt>
+        <dd>
+            <table class="table">
+                <tr>
+                    <th>Link carta</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Link.Url)
+                    </td>
+
+                </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th>Autor carta</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Ilustrador.Nome)
+                    </td>
+
+                </tr>
+
+            </table>
+            <table class="table">
+                <tr>
+                    <th>Coleção carta</th>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Colecao.Nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Colecao.Ano)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Colecao.LogoUrl);
+                    </td>
+                </tr>
+
+            </table>
+      
         </dd>
     </dl>
 </div>
