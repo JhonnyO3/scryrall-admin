@@ -5,81 +5,79 @@
 }
 
 <h1>Details</h1>
-
 <div>
     <h4>Carta</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Tipo)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Tipo)
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Descricao)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Descricao)
         </dd>
-        <dt class = "col-sm-2">
+
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FotoUrl)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.FotoUrl)
         </dd>
-        <dt >
-            @Html.DisplayFor(model => model.Colecao)
-        </dt>
-        <dt>
-            @Html.DisplayFor(model => model.Ilustrador)
-        </dt>
-        <dt >
+
+        <dt class="col-sm-2">
             @Html.DisplayFor(model => model.Link)
         </dt>
         <dd>
             <table class="table">
                 <tr>
-                    <th>Link carta</th>
-                </tr>
-                <tr>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.Link.Url)
-                    </td>
-
-                </tr>
-            </table>
-            <table class="table">
-                <tr>
-                    <th>Autor carta</th>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.Ilustrador.Nome)
-                    </td>
-
-                </tr>
-
-            </table>
-            <table class="table">
-                <tr>
+                    <th>Foto</th>
+                    <th>Logo icone</th>
                     <th>Coleção carta</th>
+                    <th>Nome Ilustrador</th>
+                    <th>Ano de lançamento</th>
+                    <th>Url da Página</th>
                 </tr>
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => Model.Colecao.Nome)
+                        <img src="@Model.FotoUrl" alt="image film" style="max-width: 200px; max-height: 300px;" />
+                    </td>
+
+                    <td>
+                        @if (Model.Colecao != null)
+                        {
+                            <img src="@(!string.IsNullOrEmpty(Model.Colecao.LogoUrl) ? Url.Content(Model.Colecao.LogoUrl) : "https://logodix.com/logo/298915.png")" alt="image film" style="max-width: 200px; max-height: 300px;" />
+                        }
+                        else
+                        {
+                            <img src="https://logodix.com/logo/298915.png" alt="image film" style="max-width: 200px; max-height: 300px;" />
+                        }
+                    </td>
+
+
+                
+                    <td>
+                        @Html.DisplayFor(model => model.Colecao.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => Model.Colecao.Ano)
+                        @Html.DisplayFor(model => model.Ilustrador.Nome)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => Model.Colecao.LogoUrl);
+                        @Html.DisplayFor(model => model.Colecao.Ano)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => model.Link.Url)
                     </td>
                 </tr>
-
             </table>
-      
+
+
+
         </dd>
     </dl>
 </div>
@@ -87,3 +85,4 @@
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+

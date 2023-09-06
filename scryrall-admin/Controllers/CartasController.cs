@@ -35,8 +35,10 @@ namespace scryrall_admin.Controllers
             {
                 return NotFound();
             }
-
             var carta = await _context.Cartas
+                .Include(c => c.Colecao)
+                .Include(c => c.Ilustrador)
+                .Include(c => c.Link)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (carta == null)
             {
@@ -83,8 +85,11 @@ namespace scryrall_admin.Controllers
             {
                 return NotFound();
             }
-
-            var carta = await _context.Cartas.FindAsync(id);
+            var carta = await _context.Cartas
+                .Include(c => c.Colecao)
+                .Include(c => c.Ilustrador)
+                .Include(c => c.Link)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (carta == null)
             {
                 return NotFound();
@@ -97,7 +102,7 @@ namespace scryrall_admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Tipo,Descricao,FotoUrl")] Carta carta)
+        public async Task<IActionResult> Edit(int id, Carta carta)
         {
             if (id != carta.Id)
             {
@@ -108,6 +113,8 @@ namespace scryrall_admin.Controllers
             try
             {
                 _context.Update(carta);
+             
+
                 await _context.SaveChangesAsync();
 
 
